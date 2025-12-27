@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medical Diagnoser</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<div class="container">
+
+    <h1>🩺 Medical Diagnoser </h1>
+
+    <form method="POST" action="/predict">
+        <label>Enter Patient Symptoms</label>
+        <textarea name="symptoms" placeholder="Type symptoms here..." required>{{ symptoms if symptoms else "" }}</textarea>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if disease %}
+    <div class="card">
+        <h3>Predicted Disease:</h3>
+        <p class="highlight">{{ disease }}</p>
+
+        <h3>Suggested Prescription:</h3>
+        <p class="highlight">{{ prescription }}</p>
+    </div>
+    {% endif %}
+
+</div>
+</body>
+</html>

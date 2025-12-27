@@ -16,7 +16,7 @@ def preprocess_data(data):
     label_encoder_disease=LabelEncoder()
     label_encoder_prescription=LabelEncoder()
     disease_labels=label_encoder_disease.fit_transform(data['Disease'])
-    prescription_labels=label_encoder_prescription.fit(data['Prescription'])
+    prescription_labels=label_encoder_prescription.fit_transform(data['Prescription'])
 
     disease_labels_categorical=to_categorical(disease_labels)
     prescription_labels_categorical=to_categorical(prescription_labels)
