@@ -4,6 +4,12 @@ import numpy as np
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from src.preprocessing import load_data, preprocess_data
+import sys
+import os
+
+# Add the parent directory to the system path
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
 
 # Load model & artifacts
 model = load_model("models/medical_model.h5")
